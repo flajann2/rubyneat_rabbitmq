@@ -6,11 +6,10 @@ a JSON format through RabbitMQ and the evaluation results are returned via
 the same. You may now set up worker queues on any number of servers to do 
 the evaluation and return the results.
 
-{<img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/flajann2/rubyneat_rabbitmq">}[https://gitter.im/flajann2/rubyneat_rabbitmq?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge]
-
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/flajann2/rubyneat_rabbitmq?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## Gem Version
-{<img src="https://badge.fury.io/rb/rubyneat_rabbitmq.png" alt="Gem Version" />}[http://badge.fury.io/rb/rubyneat_rabbitmq]
+[![Gem Version](https://badge.fury.io/rb/rubyneat_rabbitmq.png)](http://badge.fury.io/rb/rubyneat_rabbitmq)
 
 ## Contributing to rubyneat_rabbitmq
  
