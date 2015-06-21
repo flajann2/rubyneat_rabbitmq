@@ -2,9 +2,12 @@ GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.3.8)
+    amq-protocol (1.9.2)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
+    bunny (1.7.0)
+      amq-protocol (>= 1.9.2)
     byebug (4.0.5)
       columnize (= 0.9.0)
     celluloid (0.16.0)
@@ -133,6 +136,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.0)
+  bunny (~> 1.7)
   guard (~> 2)
   guard-rspec (~> 4)
   jeweler (~> 2.0.1)
