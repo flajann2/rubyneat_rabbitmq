@@ -8,10 +8,9 @@ a JSON format through RabbitMQ and the evaluation results are returned via
 the same. You may now set up worker queues on any number of servers to do 
 the evaluation and return the results.
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/flajann2/rubyneat_rabbitmq?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
 ## Gem Version
 [![Gem Version](https://badge.fury.io/rb/rubyneat_rabbitmq.png)](http://badge.fury.io/rb/rubyneat_rabbitmq)
+[![Travis CI](https://travis-ci.org/flajann2/rubyneat_rabbitmq.svg?branch=master)](https://travis-ci.org/flajann2/rubyneat_rabbitmq)
 
 ## Contributing to rubyneat_rabbitmq
  
