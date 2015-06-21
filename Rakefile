@@ -2,6 +2,12 @@
 
 require 'rubygems'
 require 'bundler'
+require 'semver'
+
+def s_version
+  SemVer.find.format "%M.%m.%p%s"
+end
+
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
@@ -17,8 +23,17 @@ Jeweler::Tasks.new do |gem|
   gem.name = "rubyneat_rabbitmq"
   gem.homepage = "http://github.com/flajann2/rubyneat_rabbitmq"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{RabbitMQ Extension for RubyNEAT}
+  gem.version = s_version
+  gem.required_ruby_version = '>= 2.0'
+
+  gem.description = %Q{
+  To allow RubyNEAT to extend the phenotypes and evaluations in a distributed
+  and language-neutral manner, this plugin exists. Phenotype DSL is sent in
+  a JSON format through RabbitMQ and the evaluation results are returned via
+  the same. You may now set up worker queues on any number of servers to do 
+  the evaluation and return the results.
+  }
   gem.email = "fred.mitchell@gmx.de"
   gem.authors = ["Fred Mitchell"]
   # dependencies defined in Gemfile
@@ -41,7 +56,7 @@ task :default => :spec
 
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
+  version = s_version
 
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title = "rubyneat_rabbitmq #{version}"
