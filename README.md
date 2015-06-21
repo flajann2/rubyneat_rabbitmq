@@ -1,5 +1,7 @@
 # rubyneat_rabbitmq -- RabbitMQ plugin for RubyNEAT
 
+[![Join the chat at https://gitter.im/flajann2/rubyneat_rabbitmq](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/flajann2/rubyneat_rabbitmq?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 To allow RubyNEAT to extend the phenotypes and evaluations in a distributed
 and language-neutral manner, this plugin exists. Phenotype DSL is sent in
 a JSON format through RabbitMQ and the evaluation results are returned via
