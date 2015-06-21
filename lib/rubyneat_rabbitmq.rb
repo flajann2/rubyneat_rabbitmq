@@ -1,3 +1,4 @@
+require 'rubyneat'
 require 'bunny'
 
 module NEAT

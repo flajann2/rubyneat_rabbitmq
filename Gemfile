@@ -1,11 +1,11 @@
 source "http://rubygems.org"
-# Add dependencies required to use your gem here.
-# Example:
-#   gem "activesupport", ">= 2.3.5"
+
 gem 'bunny', "~> 1.7"
 
-# Add dependencies to develop your gem here.
-# Include everything needed to run rake, tests, features, etc.
+#gem 'rubyneat'
+# During the development
+gem 'rubyneat', github: '~/development/ruby_proj/rubyneat', branch: 'hyper'
+
 group :development do
   gem "rspec", "~> 2"
   gem "rdoc", "~> 3.12"

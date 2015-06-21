@@ -1,10 +1,30 @@
+GIT
+  remote: git://github.com/~/development/ruby_proj/rubyneat.git
+  revision: f70293ccacfee5be4f0af31143eca986270a3a70
+  branch: hyper
+  specs:
+    rubyneat (0.5.2.hyper)
+      aquarium (~> 0)
+      awesome_print (~> 1)
+      bond (~> 0)
+      deep_dive (~> 0)
+      distribution (~> 0)
+      k-tree (~> 0)
+      queue_ding
+      rb-readline (~> 0)
+      statistics2 (~> 0)
+      thor (~> 0)
+
 GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.3.8)
     amq-protocol (1.9.2)
+    aquarium (0.5.1)
+    awesome_print (1.6.1)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bond (0.5.1)
     builder (3.2.2)
     bunny (1.7.0)
       amq-protocol (>= 1.9.2)
@@ -15,9 +35,11 @@ GEM
     coderay (1.1.0)
     columnize (0.9.0)
     debug_inspector (0.0.2)
+    deep_dive (0.2.4)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
+    distribution (0.7.3)
     docile (1.1.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
@@ -61,6 +83,7 @@ GEM
       rdoc
     json (1.8.3)
     jwt (1.5.0)
+    k-tree (0.0.3)
     listen (2.10.1)
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
@@ -102,11 +125,14 @@ GEM
     pry-stack_explorer (0.4.9.2)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
+    queue_ding (0.1.1)
+      aquarium (~> 0)
     rack (1.6.4)
     rake (10.4.2)
     rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
+    rb-readline (0.5.3)
     rdoc (3.12.2)
       json (~> 1.4)
     rspec (2.99.0)
@@ -125,6 +151,7 @@ GEM
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
     slop (3.6.0)
+    statistics2 (0.54)
     thor (0.19.1)
     thread_safe (0.3.5)
     timers (4.0.1)
@@ -148,5 +175,6 @@ DEPENDENCIES
   pry-stack_explorer
   rdoc (~> 3.12)
   rspec (~> 2)
+  rubyneat!
   semver (~> 1)
   simplecov
