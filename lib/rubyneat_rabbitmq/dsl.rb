@@ -6,25 +6,32 @@ module NEAT
   module DSL
     def rabbit(&block)
       def config(&block)
-        @cfg = OpenStruct.new
+        @bunny = {}
 
         def url(u)
-          @cfg.url = u 
+          @bunny[:url] = u 
         end
 
         def channel(c)
-          @cfg.channel = c
+          @bunny[:channel] = c
         end
 
         def queue(*p)
-          @cfg.queue = p
+          @bunny[:queue] = p
         end
-        block.(@cfg)
+        block.(@bunny)
       end
 
       def worker(&block)
       end
+
       block.()
+
+      unless @bunny.nil?
+        @bunny[:conn] = Bunny.new @bunny[:url]
+        @bunny[:conn].start
+        
+      end
     end
   end
 end

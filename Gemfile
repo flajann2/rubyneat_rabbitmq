@@ -7,7 +7,7 @@ gem 'bunny', "~> 1.7"
 gem 'rubyneat', github: '/development/ruby_proj/rubyneat', branch: 'hyper'
 
 group :development do
-  gem "rspec", "~> 2"
+  gem "rspec", "~> 3"
   gem "yard", "~> 0"
   gem "rdoc", "~> 3"
   gem "bundler", "~> 1.0"

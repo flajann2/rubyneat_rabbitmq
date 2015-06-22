@@ -9,20 +9,21 @@ describe NEAT::Rabbit do
   context 'DSL' do
     include NEAT::DSL
     URL = 'amqp://guest:guest@localhost:5672'
+    bunny = nil 
+
     it 'configurable' do
-      cfg = nil
       rabbit do
         config do |c|
-          cfg = c
+          bunny = c
           url URL
           channel 'test.channel'
           queue 'test.queue', auto_delete: true
         end
       end
-      cfg.should_not be_nil
-      cfg[:url].should == URL
-      cfg[:queue].first.should == 'test.queue'
-      cfg[:channel].should == 'test.channel'
+      expect(bunny).not_to be_nil
+      expect(bunny[:url]).to be URL
+      expect(bunny[:queue].first).to eq('test.queue')
+      expect(bunny[:channel]).to eq('test.channel')
     end
   end
 end
