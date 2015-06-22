@@ -36,8 +36,13 @@ Jeweler::Tasks.new do |gem|
   }
   gem.email = "fred.mitchell@gmx.de"
   gem.authors = ["Fred Mitchell"]
-  # dependencies defined in Gemfile
+
+  gem.files.exclude 'foo/**/*', 'rdoc/*',
+                    '.idea/**/*', '.idea/**/.*', '.yardoc/**/*',
+                    'doc/**/*',
+                    'Guardfile'
 end
+
 Jeweler::RubygemsDotOrgTasks.new
 
 require 'rspec/core'
@@ -54,12 +59,5 @@ end
 
 task :default => :spec
 
-require 'rdoc/task'
-Rake::RDocTask.new do |rdoc|
-  version = s_version
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "rubyneat_rabbitmq #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
+require 'yard'
+YARD::Rake::YardocTask.new

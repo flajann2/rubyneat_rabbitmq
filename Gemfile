@@ -4,13 +4,14 @@ gem 'bunny', "~> 1.7"
 
 #gem 'rubyneat'
 # During the development
-gem 'rubyneat', github: '~/development/ruby_proj/rubyneat', branch: 'hyper'
+gem 'rubyneat', github: '/development/ruby_proj/rubyneat', branch: 'hyper'
 
 group :development do
   gem "rspec", "~> 2"
-  gem "rdoc", "~> 3.12"
+  gem "yard", "~> 0"
+  gem "rdoc", "~> 3"
   gem "bundler", "~> 1.0"
-  gem "jeweler", "~> 2.0.1"
+  gem "jeweler", "~> 2"
   gem "simplecov", ">= 0"
   gem 'semver', '~> 1'
   gem 'guard', '~> 2'

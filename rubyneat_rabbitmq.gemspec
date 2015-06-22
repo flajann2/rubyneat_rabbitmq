@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.date = "2015-06-21"
   s.description = "\n  To allow RubyNEAT to extend the phenotypes and evaluations in a distributed\n  and language-neutral manner, this plugin exists. Phenotype DSL is sent in\n  a JSON format through RabbitMQ and the evaluation results are returned via\n  the same. You may now set up worker queues on any number of servers to do \n  the evaluation and return the results.\n  "
   s.email = "fred.mitchell@gmx.de"
+  s.executables = ["README.md"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md"
@@ -28,6 +29,7 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.md",
     "Rakefile",
+    "bin/README.md",
     "lib/rubyneat_rabbitmq.rb",
     "rubyneat_rabbitmq.gemspec",
     "spec/lib/rubyneat_rabbitmq/rubyneat_rabbitmq_spec.rb",
@@ -47,9 +49,10 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<bunny>, ["~> 1.7"])
       s.add_runtime_dependency(%q<rubyneat>, [">= 0"])
       s.add_development_dependency(%q<rspec>, ["~> 2"])
-      s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
+      s.add_development_dependency(%q<yard>, ["~> 0"])
+      s.add_development_dependency(%q<rdoc>, ["~> 3"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 2.0.1"])
+      s.add_development_dependency(%q<jeweler>, ["~> 2"])
       s.add_development_dependency(%q<simplecov>, [">= 0"])
       s.add_development_dependency(%q<semver>, ["~> 1"])
       s.add_development_dependency(%q<guard>, ["~> 2"])
@@ -64,9 +67,10 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<bunny>, ["~> 1.7"])
       s.add_dependency(%q<rubyneat>, [">= 0"])
       s.add_dependency(%q<rspec>, ["~> 2"])
-      s.add_dependency(%q<rdoc>, ["~> 3.12"])
+      s.add_dependency(%q<yard>, ["~> 0"])
+      s.add_dependency(%q<rdoc>, ["~> 3"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
-      s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
+      s.add_dependency(%q<jeweler>, ["~> 2"])
       s.add_dependency(%q<simplecov>, [">= 0"])
       s.add_dependency(%q<semver>, ["~> 1"])
       s.add_dependency(%q<guard>, ["~> 2"])
@@ -82,9 +86,10 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<bunny>, ["~> 1.7"])
     s.add_dependency(%q<rubyneat>, [">= 0"])
     s.add_dependency(%q<rspec>, ["~> 2"])
-    s.add_dependency(%q<rdoc>, ["~> 3.12"])
+    s.add_dependency(%q<yard>, ["~> 0"])
+    s.add_dependency(%q<rdoc>, ["~> 3"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
-    s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
+    s.add_dependency(%q<jeweler>, ["~> 2"])
     s.add_dependency(%q<simplecov>, [">= 0"])
     s.add_dependency(%q<semver>, ["~> 1"])
     s.add_dependency(%q<guard>, ["~> 2"])

@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/~/development/ruby_proj/rubyneat.git
+  remote: git://github.com//development/ruby_proj/rubyneat.git
   revision: f70293ccacfee5be4f0af31143eca986270a3a70
   branch: hyper
   specs:
@@ -166,15 +166,16 @@ DEPENDENCIES
   bunny (~> 1.7)
   guard (~> 2)
   guard-rspec (~> 4)
-  jeweler (~> 2.0.1)
+  jeweler (~> 2)
   pry
   pry-byebug
   pry-doc
   pry-remote
   pry-rescue
   pry-stack_explorer
-  rdoc (~> 3.12)
+  rdoc (~> 3)
   rspec (~> 2)
   rubyneat!
   semver (~> 1)
   simplecov
+  yard (~> 0)
