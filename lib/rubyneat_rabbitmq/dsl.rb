@@ -13,11 +13,11 @@ module NEAT
         end
 
         def channel(c)
-          @bunny[:channel] = c
+          @bunny[:channel_name] = c
         end
 
         def queue(*p)
-          @bunny[:queue] = p
+          @bunny[:queue_params] = p
         end
         block.(@bunny)
       end
@@ -30,7 +30,8 @@ module NEAT
       unless @bunny.nil?
         @bunny[:conn] = Bunny.new @bunny[:url]
         @bunny[:conn].start
-        
+        @bunny[:channel] = @bunny[:conn].create_channel @bunny[:channel_name]
+        @bunny[:queue] = @bunny[:channel].queue  
       end
     end
   end

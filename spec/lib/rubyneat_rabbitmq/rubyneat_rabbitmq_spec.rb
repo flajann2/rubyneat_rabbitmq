@@ -22,8 +22,8 @@ describe NEAT::Rabbit do
       end
       expect(bunny).not_to be_nil
       expect(bunny[:url]).to be URL
-      expect(bunny[:queue].first).to eq('test.queue')
-      expect(bunny[:channel]).to eq('test.channel')
+      expect(bunny[:queue_params].first).to eq('test.queue')
+      expect(bunny[:channel_name]).to eq('test.channel')
     end
   end
 end
