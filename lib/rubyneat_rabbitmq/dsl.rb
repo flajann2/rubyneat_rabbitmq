@@ -38,7 +38,13 @@ module NEAT
         @bunny[:channel] = @bunny[:conn].create_channel 
         @bunny[:queue] = @bunny[:channel].queue(*@bunny[:queue_params]) 
         @bunny[:exchange] = @bunny[:channel].default_exchange
+        NEAT::controller.bunny = @bunny
       end
     end
+  end
+
+  # We monkey patch Controller to put a bunny in there.
+  class Controller
+    attr_neat :bunny, default: nil, cloneable: false
   end
 end
