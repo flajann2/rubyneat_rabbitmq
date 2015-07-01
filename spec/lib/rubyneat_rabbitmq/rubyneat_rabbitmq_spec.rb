@@ -25,7 +25,7 @@ describe NEAT::Rabbit do
       expect(bunny[:url]).to be URL
       expect(bunny[:queue_params].first).to eq('test.queue')
       expect(bunny[:reply_to]).to eq('test.reply')
-      expect(bunny[:route_name]).to eq('test.route')
+      expect(bunny[:routing_key]).to eq('test.route')
     end
   end
 end

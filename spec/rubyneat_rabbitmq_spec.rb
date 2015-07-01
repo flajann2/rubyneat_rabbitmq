@@ -18,10 +18,10 @@ describe NEAT::Rabbit do
       gotmessage = payload
     end
     
-    x.publish(TMESSAGE, :routing_key => q.name)    
+    x.publish(TMESSAGE, :routing_key => q.name)   
     sleep 0.5
-    gotmessage.should_not be_nil
-    gotmessage.should == TMESSAGE
+    expect(gotmessage).not_to be_nil
+    expect(gotmessage).to eq(TMESSAGE)
 
     conn.close
   end

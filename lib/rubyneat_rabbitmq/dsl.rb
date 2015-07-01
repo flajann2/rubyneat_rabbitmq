@@ -17,7 +17,7 @@ module NEAT
         end
         
         def route(r)
-          @bunny[:route_name] = r
+          @bunny[:routing_key] = r
         end
 
         def reply_to(rep)
@@ -36,7 +36,7 @@ module NEAT
         @bunny[:conn] = Bunny.new @bunny[:url]
         @bunny[:conn].start
         @bunny[:channel] = @bunny[:conn].create_channel 
-        @bunny[:queue] = @bunny[:channel].queue 
+        @bunny[:queue] = @bunny[:channel].queue(*@bunny[:queue_params]) 
         @bunny[:exchange] = @bunny[:channel].default_exchange
       end
     end
