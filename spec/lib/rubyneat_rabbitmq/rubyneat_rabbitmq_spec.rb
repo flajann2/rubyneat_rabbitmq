@@ -16,14 +16,16 @@ describe NEAT::Rabbit do
         config do |c|
           bunny = c
           url URL
-          channel 'test.channel'
           queue 'test.queue', auto_delete: true
+          route 'test.route'
+          reply_to 'test.reply'
         end
       end
       expect(bunny).not_to be_nil
       expect(bunny[:url]).to be URL
       expect(bunny[:queue_params].first).to eq('test.queue')
-      expect(bunny[:channel_name]).to eq('test.channel')
+      expect(bunny[:reply_to]).to eq('test.reply')
+      expect(bunny[:route_name]).to eq('test.route')
     end
   end
 end
