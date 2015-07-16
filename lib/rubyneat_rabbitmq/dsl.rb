@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 =begin rdoc
 DSL for handling RabbitMQ
 =end

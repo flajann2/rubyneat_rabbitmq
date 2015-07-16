@@ -3,7 +3,7 @@ require 'rubyneat_rabbitmq'
 
 describe NEAT::Rabbit do
   it 'RabbitMQ installed and running' do
-    Bunny::VERSION.should == '1.7.0'
+    expect(Bunny::VERSION).to eq('1.7.0')
 
     TMESSAGE = 'Test Message should be received!!!!!'
     gotmessage = nil
