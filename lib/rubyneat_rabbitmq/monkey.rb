@@ -31,3 +31,29 @@ situation, then the sequence numbers would or could mediate the group
 of critters that would interact.
 
 =end
+
+module NEAT
+  class Population
+    def evaluate!
+       @critters.each { |critter| critter.evaluate! }
+    end
+  end
+
+  class Evaluator
+    def evaluate!(critter)
+      puts 'NIY'
+    end
+  end
+
+  class Critter
+    class Phenotype
+      # This is going to be done remotely, so why do an
+      # instance_eval
+      def express!
+        instance_eval Unparser.unparse @code
+        self
+      end
+    end
+  end
+end
+
