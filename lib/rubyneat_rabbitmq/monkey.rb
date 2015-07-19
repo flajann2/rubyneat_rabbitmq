@@ -35,13 +35,35 @@ of critters that would interact.
 module NEAT
   class Population
     def evaluate!
-       @critters.each { |critter| critter.evaluate! }
+      controller.bunny[:queue].subscribe do |dinfo, mdata, payload|
+        puts "dinfo=%s mdata=%s payload=%s" % [dinfo, mdata, payload]
+      end
+
+      @critters.each { |critter| critter.evaluate! }
     end
   end
 
   class Evaluator
+    # Here, we send the crittter's phenotype
+    # down the RabbitMQ hole, but collect
+    # the results asynchronously elsewhere.
     def evaluate!(critter)
-      puts 'NIY'
+      vin = controller.query_func_hook(controller.seq_num)
+      @crit_hist[critter] = {} unless @crit_hist.member? critter
+      begin
+        x = controller.bunny[:exchange]
+        vout = unless controller.recurrence_func_none?
+                 critter.phenotype.activate_critter *vin, &@controller.recurrence_func_hook_itself
+               else
+                 critter.phenotype.activate_critter *vin
+               end
+        log.debug "Critter #{critter.name}: vin=#{vin}. vout=#{vout}"
+        @crit_hist[critter][controller.seq_num] = [vin, vout]
+      rescue Exception => e
+        log.error "Exception #{e} on code:\n#{critter.phenotype.code}"
+        @crit_hist[critter][controller.seq_num] = [vin, :error]
+      end
+
     end
   end
 
@@ -56,4 +78,3 @@ module NEAT
     end
   end
 end
-
