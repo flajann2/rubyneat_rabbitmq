@@ -35,9 +35,9 @@ of critters that would interact.
 module NEAT
   class Population
     def evaluate!
-      controller.bunny[:queue].subscribe do |dinfo, mdata, payload|
-        puts "dinfo=%s mdata=%s payload=%s" % [dinfo, mdata, payload]
-      end
+      #controller.bunny[:reply].subscribe do |dinfo, mdata, payload|
+      #  puts "dinfo=%s mdata=%s payload=%s" % [dinfo, mdata, payload]
+      #end
 
       @critters.each { |critter| critter.evaluate! }
     end
@@ -48,22 +48,27 @@ module NEAT
     # down the RabbitMQ hole, but collect
     # the results asynchronously elsewhere.
     def evaluate!(critter)
-      vin = controller.query_func_hook(controller.seq_num)
+      x = controller.bunny[:exchange]
+      payload = {}
+      payload[:name] = critter.name
+      payload[:seq] = controller.seq_num
+      payload[:vin] = vin = controller.query_func_hook(payload[:seq])
+      payload[:code] = critter.phenotype.code.inspect
       @crit_hist[critter] = {} unless @crit_hist.member? critter
       begin
-        x = controller.bunny[:exchange]
+        x.publish payload.to_json, routing_key: controller.bunny[:routing_key]
+        
         vout = unless controller.recurrence_func_none?
-                 critter.phenotype.activate_critter *vin, &@controller.recurrence_func_hook_itself
+                 critter.phenotype.activate_critter *payload[:vin], &@controller.recurrence_func_hook_itself
                else
-                 critter.phenotype.activate_critter *vin
+                 critter.phenotype.activate_critter *payload[:vin]
                end
         log.debug "Critter #{critter.name}: vin=#{vin}. vout=#{vout}"
-        @crit_hist[critter][controller.seq_num] = [vin, vout]
+        @crit_hist[critter][controller.seq_num] = [payload[:vin], vout]
       rescue Exception => e
         log.error "Exception #{e} on code:\n#{critter.phenotype.code}"
-        @crit_hist[critter][controller.seq_num] = [vin, :error]
+        @crit_hist[critter][controller.seq_num] = [payload[:vin], :error]
       end
-
     end
   end
 
