@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+# Be sure rnlib is added to the library path
+NEATMQ_PATH = File.expand_path '..', File.dirname(__FILE__)
+NEATMQ_EXECUTABLE = File.expand_path 'bin/neatmq', Dir.pwd
+
+%w{ lib neater neater/rnlib }.each do |dir|
+  $:.unshift File.join([NEATMQ_PATH, dir])
+end
+
+require 'rubyneat_rabbitmq/cli'
+
+unless File.exists? NEATMQ_EXECUTABLE
+  NEATMQ::Cli::NewMain.start
+else
+  exec NEATMQ_EXECUTABLE, *ARGV
+end

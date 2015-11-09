@@ -5,7 +5,7 @@ require_relative 'rubyneat_rabbitmq/cli'
 require_relative 'rubyneat_rabbitmq/dsl'
 require_relative 'rubyneat_rabbitmq/monkey'
 
-module NEAT
+module NEATMQ
   module Rabbit
   end
 end

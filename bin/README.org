@@ -1,0 +1,17 @@
+* Commands for RabbitMQ plugin
+
+  One mode for the RabbitMQ plugin to run is as its own workers as is specified in the Neater plugin.
+  This can be used to fully implement workers in a distributed manner, or strictly for debugging so
+  other means can be implmented to do the evaluations later.
+
+  The approach is entirely up to you.
+
+** Commandline activation
+
+*** NeatMQ
+    The neatmq command shall execute the worker as specified in the Neater. The Neater worker shall be
+    called with an entry taken from RabbitMQ, and the results returned from that shall be shot back
+    through the RabbitMQ reply_to queue.
+
+    #+BEGIN_SRC bash
+    #+EMD_SRC

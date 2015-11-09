@@ -16,7 +16,6 @@ and return the results.
 ## Overview
 Comming soon.
 
-
 ## Contributing to rubyneat_rabbitmq
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
