@@ -11,16 +11,15 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Fred Mitchell"]
-  s.date = "2015-10-31"
+  s.date = "2015-11-28"
   s.description = "\n  To allow RubyNEAT to extend the phenotypes and evaluations in a distributed\n  and language-neutral manner, this plugin exists. Phenotype DSL is sent in\n  a JSON format through RabbitMQ and the evaluation results are returned via\n  the same. You may now set up worker queues on any number of servers to do \n  the evaluation and return the results.\n  "
   s.email = "fred.mitchell@gmx.de"
-  s.executables = ["README.md"]
+  s.executables = ["README.org", "neatmq"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md"
   ]
   s.files = [
-    ".autobash",
     ".document",
     ".rspec",
     ".ruby-version",
@@ -31,7 +30,8 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.md",
     "Rakefile",
-    "bin/README.md",
+    "bin/README.org",
+    "bin/neatmq",
     "lib/rubyneat_rabbitmq.rb",
     "lib/rubyneat_rabbitmq/cli.rb",
     "lib/rubyneat_rabbitmq/dsl.rb",
