@@ -8,10 +8,10 @@ NEATMQ_EXECUTABLE = File.expand_path 'bin/neatmq', Dir.pwd
   $:.unshift File.join([NEATMQ_PATH, dir])
 end
 
-require 'rubyneat_rabbitmq/cli'
+require 'rubyneat_rabbitmq'
 
 unless File.exists? NEATMQ_EXECUTABLE
-  NEATMQ::Cli::NewMain.start
+  NEATMQ::Cli::Main.start
 else
   exec NEATMQ_EXECUTABLE, *ARGV
 end
