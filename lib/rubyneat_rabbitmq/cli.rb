@@ -25,5 +25,3 @@ module NEATMQ
     end
   end
 end
-
-
