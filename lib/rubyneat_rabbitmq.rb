@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 require 'rubyneat'
+require 'rubyneat/cli'
 require 'bunny'
 require 'thor'
 require 'rubyneat'

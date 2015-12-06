@@ -10,8 +10,4 @@ end
 
 require 'rubyneat_rabbitmq'
 
-unless File.exists? NEATMQ_EXECUTABLE
-  NEATMQ::Cli::Main.start
-else
-  exec NEATMQ_EXECUTABLE, *ARGV
-end
+NEATMQ::Cli::MQMain.start
