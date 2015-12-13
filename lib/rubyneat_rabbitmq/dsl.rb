@@ -36,7 +36,7 @@ module NEAT
       unless @bunny.nil?
         @bunny[:conn] = Bunny.new @bunny[:url]
         @bunny[:conn].start
-        @bunny[:channel] = @bunny[:conn].create_channel 
+        @bunny[:channel] = @bunny[:conn].create_channel
         @bunny[:queue] = @bunny[:channel].queue(*@bunny[:queue_params])
         @bunny[:reply] = @bunny[:channel].queue(*@bunny[:reply_params])
         @bunny[:exchange] = @bunny[:channel].default_exchange

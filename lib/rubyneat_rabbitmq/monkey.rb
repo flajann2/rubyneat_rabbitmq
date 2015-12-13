@@ -86,10 +86,34 @@ module NEAT
   end
 
   class Controller
-    # We only wish to override the
+    # We only wish to override the run to do
+    # our own specialized run.
+    # TODO: Later, we may refactor the RubyNEAT
+    # TODO: #run so that we can override selective
+    # TODO: parts, rather than the whole thing.    
     if defined? NEATMQ_PROJECT
+      # In the regular #run, we would execute
+      # the entire cycle of the generation and evolution.
+      # Here, we only want to receive the critters, evaluate
+      # each, and retun the results of the evaluation. We are
+      # not even concerned with "generations" per se here, just
+      # evaluating individual critters.
+      #
+      # Because this is set as "workers", many workers can be
+      # run in parallel, even across different machines.
       def run
-        puts "RabbitMQ Worker"
+        puts "RabbitMQ Worker activated"
+        bunny[:channel].prefetch(1)
+        begin
+          bunny[:queue].subscribe(ack: true, block: true) do |info, prop, body|
+            #pp info
+            pp prop
+            #pp body
+            bunny[:channel].ack(info.delivery_tag)
+          end
+        rescue Interrupt => _
+          bunny[:conn].close
+        end
       end
     end
   end
