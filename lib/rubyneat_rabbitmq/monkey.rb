@@ -56,7 +56,9 @@ module NEAT
       payload[:code] = critter.phenotype.code.inspect
       @crit_hist[critter] = {} unless @crit_hist.member? critter
       begin
-        x.publish payload.to_json, routing_key: controller.bunny[:routing_key]
+        x.publish payload.to_json,
+                  routing_key: controller.bunny[:routing_key],
+                  reply_to: controller.bunny[:reply]
         
         vout = unless controller.recurrence_func_none?
                  critter.phenotype.activate_critter *payload[:vin], &@controller.recurrence_func_hook_itself
@@ -79,6 +81,15 @@ module NEAT
       def express!
         instance_eval Unparser.unparse @code
         self
+      end
+    end
+  end
+
+  class Controller
+    # We only wish to override the
+    if defined? NEATMQ_PROJECT
+      def run
+        puts "RabbitMQ Worker"
       end
     end
   end

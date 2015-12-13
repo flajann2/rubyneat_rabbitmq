@@ -5,6 +5,8 @@ gem 'bunny', "~> 1.7"
 #gem 'rubyneat'
 # During the development
 gem 'rubyneat', github: '/development/ruby_proj/rubyneat', branch: 'hyper'
+gem 'parser', '~> 2'
+gem 'unparser'
 
 group :development do
   gem "rspec", "~> 3"
