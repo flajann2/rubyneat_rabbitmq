@@ -105,11 +105,14 @@ module NEAT
         puts "RabbitMQ Worker activated"
         bunny[:channel].prefetch(1)
         begin
-          bunny[:queue].subscribe(ack: true, block: true) do |info, prop, sexp|
+          bunny[:queue].subscribe(ack: true, block: true) do |info, prop, jpayload|
+            payload = JSON.parse(jpayload)
+            code = payload['code']
             #pp info
             #pp prop
             puts '=' * 60
-            pp sexp
+            puts code
+            pp Unparser.unparse(code)
             bunny[:channel].ack(info.delivery_tag)
           end
         rescue Interrupt => _
