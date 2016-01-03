@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com//development/ruby_proj/rubyneat.git
-  revision: 5a39253a7c3f1d2766963b243e80a186342361e1
+  revision: 0e04efc10fa17cbc9c05bfb989041bb81a07e30f
   branch: hyper
   specs:
     rubyneat (0.5.2.hyper)
@@ -27,7 +27,7 @@ GEM
     addressable (2.4.0)
     amq-protocol (1.9.2)
     aquarium (0.5.1)
-    ast (2.1.0)
+    ast (2.2.0)
     awesome_print (1.6.1)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -53,13 +53,12 @@ GEM
     ffi (1.9.10)
     formatador (0.2.5)
     git (1.2.9.1)
-    github_api (0.13.0)
-      addressable (~> 2.3)
+    github_api (0.13.1)
+      addressable (~> 2.4.0)
       descendants_tracker (~> 0.0.4)
       faraday (~> 0.8, < 0.10)
       hashie (>= 3.4)
       multi_json (>= 1.7.5, < 2.0)
-      nokogiri (~> 1.6.6)
       oauth2
     guard (2.13.0)
       formatador (>= 0.2.4)
@@ -94,7 +93,7 @@ GEM
     listen (3.0.5)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    lumberjack (1.0.9)
+    lumberjack (1.0.10)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
@@ -103,7 +102,7 @@ GEM
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     nenv (0.2.0)
-    nokogiri (1.6.7)
+    nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     notiffany (0.0.8)
       nenv (~> 0.1)
@@ -140,7 +139,7 @@ GEM
       aquarium (~> 0)
     rack (1.6.4)
     rake (10.4.2)
-    rb-fsevent (0.9.6)
+    rb-fsevent (0.9.7)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rb-readline (0.5.3)
@@ -205,4 +204,4 @@ DEPENDENCIES
   yard (~> 0)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
