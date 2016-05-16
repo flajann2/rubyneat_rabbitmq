@@ -111,11 +111,11 @@ module NEAT
           bunny[:queue].subscribe(ack: true, block: true) do |info, prop, jpayload|
             payload = JSON.parse(jpayload)
             code = payload['code']
-            #pp info
+            #ap info.delivery_tag
             #pp prop
             puts '=' * 60
             puts code
-            pp Unparser.unparse(code)
+            puts Unparser.unparse(code)
             bunny[:channel].ack(info.delivery_tag)
           end
         rescue Interrupt => _
