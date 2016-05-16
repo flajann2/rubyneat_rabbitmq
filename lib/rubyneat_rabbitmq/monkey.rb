@@ -34,12 +34,15 @@ of critters that would interact.
 
 module NEAT
   class Population
+    # We evaluate asynchronously for the entire population,
+    # and gather the results after-the-fact.
     def evaluate!
+      @critters.each { |critter| critter.evaluate! }
       #controller.bunny[:reply].subscribe do |dinfo, mdata, payload|
       #  puts "dinfo=%s mdata=%s payload=%s" % [dinfo, mdata, payload]
       #end
 
-      @critters.each { |critter| critter.evaluate! }
+
     end
   end
 
