@@ -8,6 +8,7 @@ gem 'rubyneat', github: '/development/ruby_proj/rubyneat', branch: 'hyper'
 gem 'parser', '~> 2'
 gem 'unparser', '~> 0'
 gem 'awesome_print', '~> 1'
+
 group :development do
   gem "rspec", "~> 3"
   gem "yard", "~> 0"

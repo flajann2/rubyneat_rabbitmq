@@ -41,8 +41,6 @@ module NEAT
       #controller.bunny[:reply].subscribe do |dinfo, mdata, payload|
       #  puts "dinfo=%s mdata=%s payload=%s" % [dinfo, mdata, payload]
       #end
-
-
     end
   end
 
@@ -95,6 +93,8 @@ module NEAT
     # TODO: #run so that we can override selective
     # TODO: parts, rather than the whole thing.    
     if defined? NEATMQ_PROJECT
+      include NEATMQ::Sexp
+      
       # In the regular #run, we would execute
       # the entire cycle of the generation and evolution.
       # Here, we only want to receive the critters, evaluate
@@ -110,12 +110,13 @@ module NEAT
         begin
           bunny[:queue].subscribe(ack: true, block: true) do |info, prop, jpayload|
             payload = JSON.parse(jpayload)
-            code = payload['code']
+            sexp = payload['code']
+            ast = eval sexp
             #ap info.delivery_tag
-            #pp prop
-            puts '=' * 60
-            puts code
-            puts Unparser.unparse(code)
+            #ap prop
+            puts '=' * 60, sexp
+            code = Unparser.unparse(ast)
+            puts '+' * 60, code            
             bunny[:channel].ack(info.delivery_tag)
           end
         rescue Interrupt => _
