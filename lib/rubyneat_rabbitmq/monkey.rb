@@ -34,12 +34,13 @@ of critters that would interact.
 
 module NEAT
   class Population
+    # We evaluate asynchronously for the entire population,
+    # and gather the results after-the-fact.
     def evaluate!
+      @critters.each { |critter| critter.evaluate! }
       #controller.bunny[:reply].subscribe do |dinfo, mdata, payload|
       #  puts "dinfo=%s mdata=%s payload=%s" % [dinfo, mdata, payload]
       #end
-
-      @critters.each { |critter| critter.evaluate! }
     end
   end
 
@@ -92,6 +93,8 @@ module NEAT
     # TODO: #run so that we can override selective
     # TODO: parts, rather than the whole thing.    
     if defined? NEATMQ_PROJECT
+      include NEATMQ::Sexp
+      
       # In the regular #run, we would execute
       # the entire cycle of the generation and evolution.
       # Here, we only want to receive the critters, evaluate
@@ -107,12 +110,8 @@ module NEAT
         begin
           bunny[:queue].subscribe(ack: true, block: true) do |info, prop, jpayload|
             payload = JSON.parse(jpayload)
-            code = payload['code']
-            #pp info
-            #pp prop
-            puts '=' * 60
-            puts code
-            pp Unparser.unparse(code)
+            code = Unparser.unparse sexp_to_ast payload['code'] 
+            puts '=' * 60, code            
             bunny[:channel].ack(info.delivery_tag)
           end
         rescue Interrupt => _

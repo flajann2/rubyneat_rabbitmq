@@ -5,9 +5,10 @@ require 'bunny'
 require 'thor'
 require 'rubyneat'
 require 'json'
+require 'awesome_print'
+require 'parser'
+require 'unparser'
+require_relative 'rubyneat_rabbitmq/sexp'
 require_relative 'rubyneat_rabbitmq/cli'
 require_relative 'rubyneat_rabbitmq/dsl'
 require_relative 'rubyneat_rabbitmq/monkey'
-
-module NEATMQ
-end
