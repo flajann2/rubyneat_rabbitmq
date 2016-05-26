@@ -28,5 +28,5 @@ Comming soon.
 
 ## Copyright
 
-Copyright (c) 2015 Fred Mitchell. See LICENSE.txt for
+Copyright (c) 2015-2016 Fred Mitchell. See LICENSE.txt for
 further details.
