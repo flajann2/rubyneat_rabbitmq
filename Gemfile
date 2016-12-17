@@ -2,9 +2,9 @@ source "http://rubygems.org"
 
 gem 'bunny', "~> 1"
 
-#gem 'rubyneat'
+gem 'rubyneat'
 # During the development
-gem 'rubyneat', github: '/development/ruby_proj/rubyneat', branch: 'hyper'
+#gem 'rubyneat', github: '/development/ruby_proj/rubyneat', branch: 'hyper'
 gem 'parser', '~> 2'
 gem 'unparser', '~> 0'
 gem 'awesome_print', '~> 1'
