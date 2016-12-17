@@ -87,7 +87,7 @@ GEM
     nenv (0.3.0)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-    notiffany (0.0.8)
+    notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
     oauth2 (1.2.0)
@@ -203,4 +203,4 @@ DEPENDENCIES
   yard (~> 0)
 
 BUNDLED WITH
-   1.12.0
+   1.13.6
